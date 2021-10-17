@@ -1,6 +1,8 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
 const items = JSON.parse(localStorage.getItem('items')) || [];
+const clearChecks = document.querySelector("[data-js='clearAll']");
+
 
 function addItem(e) {
   
@@ -46,6 +48,19 @@ function toggleDone(e) {
   populateList(items, itemsList);
 }
 
+function toggleAllUndone() {
+
+  items.forEach((item) => {
+
+    item.done = false;
+
+  })
+
+  localStorage.setItem('items', JSON.stringify(items));
+  populateList(items, itemsList);
+}
+
 addItems.addEventListener('submit', addItem);
 itemsList.addEventListener('click', toggleDone);
+clearChecks.addEventListener('click', toggleAllUndone);
 populateList(items, itemsList);
