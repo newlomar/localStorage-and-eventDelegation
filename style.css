@@ -86,4 +86,25 @@ h2 {
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  background: #00FFFF;
+}
+
+.delete {
+  margin-top: 20px;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: #fff;
+  background: rgba(246, 71, 71, 1);
+}
+
+.checkAll {
+  margin-top: 20px;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  /* color: #fff; */
+  background: rgba(38, 166, 91, 1);
 }
