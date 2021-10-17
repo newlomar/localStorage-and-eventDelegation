@@ -63,9 +63,9 @@ function toggleAllUndone() {
 
 function deleteAllCheckBoxes() {
 
-  const newitems = [];
-  localStorage.setItem('items', JSON.stringify(newitems));
-  populateList(newitems, itemsList);
+  items.splice(0, items.length);
+  localStorage.setItem('items', JSON.stringify(items));
+  populateList(items, itemsList);
 }
 
 function toggleAllDone() {
