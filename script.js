@@ -1,6 +1,6 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
-const items = [];
+const items = JSON.parse(localStorage.getItem('items')) || [];
 
 function addItem(e) {
   
@@ -15,6 +15,7 @@ function addItem(e) {
 
   items.push(item);
   populateList(items, itemsList);
+  localStorage.setItem('items', JSON.stringify(items));
   this.reset();
 }
 
@@ -33,4 +34,18 @@ function populateList(plates = [], platesList) {
 
 }
 
+function toggleDone(e) {
+
+  if (!e.target.matches('input')) return; // para a função só ser executada caso o target seja um input
+  
+  const element = e.target;
+  const index = element.dataset.index;
+
+  items[index].done = !items[index].done;
+  localStorage.setItem('items', JSON.stringify(items));
+  populateList(items, itemsList);
+}
+
 addItems.addEventListener('submit', addItem);
+itemsList.addEventListener('click', toggleDone);
+populateList(items, itemsList);
